@@ -1,0 +1,109 @@
+.b-filter {
+	border-bottom: 1px solid $gray-light;
+	min-width: 1120px;
+
+	&--history {
+		border-bottom: none;
+	}
+
+	&__collapse {
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -$space*3;
+			right: -$space*3;
+			height: 1px;
+			background-color: $gray-light;
+		}
+	}
+
+	&__btn {
+		min-width: 180px;
+	}
+
+	&__list {
+		list-style: none;
+		margin: $space*2 0 #{-$space/2} 0;
+		padding: 0;
+		display: flex;
+
+		&:empty {
+			margin: 0;
+		}
+
+		&-item {
+			font-size: 14px;
+			white-space: nowrap;
+			flex: 0 0 auto;
+			line-height: 1;
+			padding: $space 13px;
+			color: $gray-darker;
+			background-color: $primary-light;
+			border: 1px solid $gray-light;
+			border-radius: 14121991px;
+			margin: $space/2 $space $space/2 0;
+
+			&-btn {
+				border: none;
+				background: none;
+				outline: none;
+				padding: 0;
+				width: $space*2;
+				height: $space*2;
+				vertical-align: 0.15em;
+				color: $gray-dark;
+
+				&:hover {
+					color: $gray-darker;
+				}
+			}
+		}
+	}
+
+	&__download {
+		min-width: 90px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $primary;
+		border-radius: 8px;
+		border: 1px solid $primary;
+		background-color: #FFFFFF;
+		height: $space * 6;
+		padding-left: $space*2;
+		padding-right: $space*2;
+
+		svg {
+			margin-right: 12px;
+			color: $primary;
+		}
+
+		&:focus, &:active, &:hover {
+			color: $primary;
+		}
+
+		&:hover {
+			background-color: $hover-bg;
+			border: 1px solid $primary;
+		}
+
+		&:disabled {
+			color: $gray-dark;
+			background-color: $primary-light;
+			border: 1px solid $gray-light;
+
+			svg {
+				color: $gray-dark;
+			}
+		}
+	}	
+}
+
+.btn.btn-light.b-filter__download {
+	&:active {
+		color: $primary;
+	}
+}

@@ -1,0 +1,6 @@
+@function fillMap($map, $from, $to, $step) {
+    @for $i from 0 through 20 {
+        $map: map-merge($map, ($i: $step * $i));
+    }
+    @return $map;
+}

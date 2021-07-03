@@ -1,0 +1,27 @@
+@import 'fonts';
+@import 'variables';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap-vue/src/index.scss';
+@import 'vue-select/src/scss/vue-select.scss';
+@import 'pagination';
+@import "general-classes";
+@import 'helpers';
+@import 'btn';
+@import 'select';
+@import 'icon';
+@import 'popover';
+@import 'table';
+@import 'card';
+@import 'modal';
+@import 'global';
+@import 'dropdown';
+@import 'tabs';
+@import 'filter';
+@import 'details';
+@import 'switch';
+@import 'plug';
+
+#app {
+	min-height: 100vh;
+	letter-spacing: 0.1px;
+}

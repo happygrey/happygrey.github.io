@@ -1,0 +1,199 @@
+.b-table.b-table--general {
+	min-width: $table-min-width;
+	margin: 0;
+
+	thead {
+		th {
+			border: none;
+			font-size: 14px;
+			font-weight: 400;
+			color: $gray-dark;
+			background-color: $white;
+            padding: $space*3;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            div {
+                display: inline;
+            }
+		}
+	}
+
+	tr {
+		&:focus {
+			outline: none;
+		}
+	}
+
+	td, th {
+		padding: $space*2 $space*3;
+		vertical-align: middle;
+
+		&:focus {
+			outline: none;
+		}
+
+		&:first-child {
+			padding-left: $space*3;
+		}
+	}
+
+	tbody {
+
+		tr {
+			--box-shadow-color: #{$gray-light};
+			box-shadow: 0 (-$space*3) 0 (-$space*3+1) var(--box-shadow-color);
+
+			td {
+				height: $space*9;
+			}
+		}
+	}
+
+	& > thead > tr {
+		& > [aria-sort]:not(.b-table-sort-icon-left) {
+			background-image: none;
+
+			&::after {
+				content: "";
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				background-position: left center;
+				background-repeat: no-repeat;
+				vertical-align: sub;
+				margin-left: 8px;
+			}
+		}
+
+		& > [aria-sort].b-table-sort-icon-left {
+			background-image: none;
+
+			&::before {
+				content: "";
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				background-position: right center;
+				background-repeat: no-repeat;
+				vertical-align: sub;
+				margin-right: 8px;
+			}
+		}
+
+		& > [aria-sort="none"] {
+			&::after, &::before {
+				background-image: none;
+			}
+
+			&:hover {
+				&::after, &::before {
+					background-image: $b-table-sort-icon-bg-not-sorted;
+				}
+			}
+		}
+
+		& > [aria-sort="ascending"] {
+			&::after, &::before {
+				background-image: $b-table-sort-icon-bg-descending;
+				transform: scale(1, -1);
+			}
+		}
+
+		& > [aria-sort="descending"] {
+			&::after, &::before {
+				background-image: $b-table-sort-icon-bg-descending;
+			}
+		}
+	}
+
+	.b-table--general__arrow {
+		transform: rotate(-90deg);
+		color: $gray;
+	}
+
+	.b-table--general__points {
+		color: $primary;
+	}
+
+	&.table-hover {
+		tbody {
+			tr {
+				&:hover {
+					.b-table--general__arrow {
+						color: $primary;
+					}
+
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	&[aria-busy="true"] {
+		opacity: 1;
+	}
+
+	&.b-table--border-bottom {
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: $space*3;
+			right: $space*3;
+			bottom: 0;
+			height: 1px;
+			background-color: $gray-light;
+		}
+	}
+}
+
+.b-table--general__primary-button {
+	padding-top: 11px;
+	padding-bottom: 11px;
+}
+
+.b-table {
+	&__wrapper {
+		width: calc(100% + 16px);
+		background-color: $white;
+		@extend .g-island;
+
+		@include media-breakpoint-up(md) {
+			width: calc(100% + 40px);
+		}
+
+		@include media-breakpoint-up(lg) {
+			width: calc(100% + 48px);
+		}
+
+		@include media-breakpoint-up(xl) {
+			width: 100%;
+		}
+	}
+
+	&__footer {
+		padding: $space*4 $space*3 $space*5;
+		min-width: $table-min-width;
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: $space*3;
+			right: $space*3;
+			height: 1px;
+			background-color: $gray-light;
+		}
+	}
+}
+
+.b-table.b-table--border {
+	border-top: 1px solid #E8E8E8;
+}
+
+.b-table__cell--auto {
+	width: 1px;
+}

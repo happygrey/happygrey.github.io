@@ -1,0 +1,4 @@
+@mixin setStatusColors($color) {
+	color: $color;
+	background-color: rgba($color, .08);
+}

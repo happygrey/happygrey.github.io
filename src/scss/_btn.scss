@@ -1,0 +1,75 @@
+﻿.btn-primary {
+	font-weight: 500;
+	letter-spacing: 0.4px;
+
+	&:not(:disabled):not(.disabled) {
+		&:hover {
+			box-shadow: $btn-main-shadow-hover;
+			background-color: $primary;
+			border-color: $primary;
+		}
+
+		&:active {
+			box-shadow: $btn-active-box-shadow;
+			background-color: $btn-main-bg-active;
+			border-color: $btn-main-bg-active;
+
+			&:focus {
+				box-shadow: $btn-active-box-shadow;
+			}
+		}
+
+		&:focus {
+			box-shadow: $btn-main-shadow-hover;
+			background-color: $primary;
+			border-color: $primary;
+		}
+	}
+
+	&.disabled, &:disabled {
+		background-color: $gray;
+		border-color: $gray;
+		pointer-events: none;
+	}
+}
+
+.btn-outline-primary {
+
+	&:not(:disabled):not(.disabled) {
+		&:hover, &:focus {
+			color: $btn-outline-primary-hover;
+			border-color: $btn-outline-primary-hover;
+			background-color: transparent;
+			box-shadow: none;
+		}
+
+		&:active {
+			color: $btn-outline-primary-active;
+			border-color: $btn-outline-primary-active;
+			background-color: transparent;
+			box-shadow: none;
+		}
+	}
+}
+
+.btn.btn-width {
+	max-width: 284px
+}
+
+.btn-none {
+	background: none;
+	color: $gray-dark;
+
+	&:hover {
+		color: $gray-darker;
+	}
+}
+
+.btn-header {
+	width: 100%;
+	min-width: 133px;
+    height: 40px;
+	padding: 6px 17px;
+    font-size: 14px;
+	letter-spacing: 0.4px;
+}

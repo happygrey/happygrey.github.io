@@ -1,0 +1,12 @@
+.custom-switch .custom-control-label::before {
+    top: 0;
+    width: 37px;
+    height: 23px;
+    border-radius: 23px;
+}
+
+.custom-switch .custom-control-label::after {
+    top: 4px;
+    width: 13px;
+    height: 13px;
+}
