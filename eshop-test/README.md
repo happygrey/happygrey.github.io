@@ -1,4 +1,4 @@
-# test-eshop
+# eshop-test
 
 ## Project setup
 ```
