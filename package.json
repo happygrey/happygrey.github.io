@@ -5,8 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "start": "cd dist && npm start"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "bootstrap": "^5.0.2",
