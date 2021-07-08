@@ -89,7 +89,7 @@ export default {
             })
             
             // eslint-disable-next-line
-            let encrypted = CryptoJS.HmacSHA256(json, this.ak.secret)
+            let encrypted = window.CryptoJS.HmacSHA256(json, this.ak.secret)
             window.PaysendBusinessPayment.pay(encrypted);
         },
         loadJS(url, location) {
