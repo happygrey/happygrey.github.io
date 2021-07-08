@@ -23,25 +23,28 @@
 </template>
 
 <script>
-    import storeModule  from '../store/store'
+    import { mapActions, mapState  } from "vuex";
 
     export default {
         name: "Settings",
+        ...mapActions({
+            changeApiKey: 'changeApiKeyAsync'
+        }),
+        computed: mapState({
+            apiKey: 'apiKey'
+        }),
         methods: {
-            save: function() {
-                this.storeModule.mutations.setApiKey(this.apiKey)
+            save: function(payload) {
+                this.changeApiKey(payload)
             },
         },
         data() {
             return {
-                apiKey: {
-                    key: storeModule.state.apiKey.key,
-                    secret: storeModule.state.apiKey.secret
+                ak: {
+                    key: 'a74bf3a3-c6bc-4bdd-ab1d-2ced4d08a8d1',
+                    secret: 'a74bf3a3-c6bc-4bdd-ab1d-2ced4d08a8d1'
                 }
             }
-        },
-        mounted() {
-            
         },
     }
 </script>

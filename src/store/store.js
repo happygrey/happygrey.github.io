@@ -1,4 +1,9 @@
-const storeModule = {
+import Vuex from 'vuex';
+import Vue from 'vue'
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
     debug: true,
     state: {
         apiKey: {
@@ -7,16 +12,23 @@ const storeModule = {
         }    
     },
     getters: {
-
+        getApiKey: state => {
+            return state.apiKey
+        } 
     },
     mutations: {
-        setApiKey: function(data) {
+        setApiKey(state, data) {
             if (this.debug) console.log(JSON.stringify(data))
             
-            if (this.state.apiKey)
-                this.state.apiKey = data;
+            if (state.apiKey)
+                state.apiKey = data;
+        }
+    },
+    actions: {
+        changeApiKeyAsync({commit}, payload) {
+            commit('setApiKey', payload)
         }
     }
-}
+});
 
-export default storeModule;
+export default store;
