@@ -44,15 +44,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
     name: "Payment",
-    computed: {
-        ...mapGetters({
-            apiKey: 'getApiKey'
-        })
-    },
+    computed: mapState({
+            apiKey: state => state.settings.apiKey
+    }),
     data() {
         return {
             paymentUrl: "https://pay.demo.paysend.com/paysendPaymentLibrary.umd.min.js",
@@ -70,26 +68,22 @@ export default {
                 { value: 'USD', text: 'US Dollar'},
                 { value: 'RUB', text: 'Russiab ruble'},
             ],
-            ak: {
-                key: '3d35a1c7a59143e8b1a02585cedee87d',
-                secret: '529c941e01f14f7c84f44a749641817b'
-            }
         }
     },
 
     methods: {
         send() {
             let json = window.PaysendBuisnessPayment.setPaymentData({
-                apiKey: this.ak.key,
+                apiKey: this.apiKey.key,
                 orderId: this.paymentData.orderId,
                 description: this.paymentData.description,
                 isRecurring: this.paymentData.isRecurring,
                 currency: this.paymentData.currency,
                 amount: this.paymentData.amount
             })
-            
+            console.log(JSON.stringify(json))
             // eslint-disable-next-line
-            let encrypted = window.CryptoJS.HmacSHA256(json, this.ak.secret)
+            let encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
             window.PaysendBuisnessPayment.pay(encrypted);
         },
         loadJS(url, location) {

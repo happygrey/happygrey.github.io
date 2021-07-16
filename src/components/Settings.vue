@@ -4,18 +4,18 @@
             <div class="row"> 
                 <div class="mt-3">
                     <label class="mt-3 col-3" for="api-key">Api key</label>
-                    <b-form-input class="mt-3 col-3" id="api-key" v-model="apiKey.key" />
+                    <b-form-input class="mt-3 col-3" id="api-key" v-model="ak.key" />
                 </div>
             </div>
             <div class="row">
                 <div class="mt-3">
                     <label class="mt-3 col-3" for="api-secret">Api secret</label>
-                    <b-form-input class="mt-3 col-3" id="api-secret" v-model="apiKey.secret"></b-form-input>
+                    <b-form-input class="mt-3 col-3" id="api-secret" v-model="ak.secret"></b-form-input>
                 </div>
             </div>
             <div class="row"> 
                 <div class="mt-3">
-                    <b-button id="button" @click="save">Save</b-button>
+                    <b-button id="button" @click="changeApiKeyAsync(ak)">Save</b-button>
                 </div>
             </div>
         </b-form-group>
@@ -23,21 +23,15 @@
 </template>
 
 <script>
-    import { mapActions, mapState  } from "vuex";
+    import { mapActions, mapState  } from 'vuex';
+
 
     export default {
-        name: "Settings",
-        ...mapActions({
-            changeApiKey: 'changeApiKeyAsync'
-        }),
+        name: 'Settings',
         computed: mapState({
-            apiKey: 'apiKey'
+            apiKey: state => state.settings.apiKey
         }),
-        methods: {
-            save: function(payload) {
-                this.changeApiKey(payload)
-            },
-        },
+        methods: mapActions('settings', ['changeApiKeyAsync']),
         data() {
             return {
                 ak: {
