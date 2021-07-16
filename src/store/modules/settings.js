@@ -1,7 +1,7 @@
 const state = () => ({
     apiKey: {
-        key: 'a74bf3a3-c6bc-4bdd-ab1d-2ced4d08a8d1',
-        secret: 'a74bf3a3-c6bc-4bdd-ab1d-2ced4d08a8d1'
+        key: '3d35a1c7a59143e8b1a02585cedee87d',
+        secret: '529c941e01f14f7c84f44a749641817b'
     }    
   })
 
