@@ -102,9 +102,9 @@ export default {
         }
     },
     created() {
-        this.loadJS(this.vendorUrl, document.body);
+        // this.loadJS(this.vendorUrl, document.body);
         this.loadJS(this.cryptoUrl, document.body);
-        this.loadJS(this.paymentUrl, document.body);
+        // this.loadJS(this.paymentUrl, document.body);
         this.loadJS(this.appUrl, document.body);
     }
 }
