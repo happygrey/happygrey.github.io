@@ -48,12 +48,18 @@ import { mapState } from 'vuex';
 
 export default {
     name: "Payment",
-    computed: 
-        mapState({
-                apiKey: state => state.settings.apiKey
-        }),
-        paymentUrl: function() { return `${this.host}/paysendPaymentLibrary.umd.min.js` },
-        cryptoUrl:  function() {  return `${this.host}/crypto-js.js` },
+    computed: {
+        localComputed() {
+            return {
+                paymentUrl:  `${this.host}/paysendPaymentLibrary.umd.min.js`,
+                cryptoUrl:   `${this.host}/crypto-js.js`
+            }
+        },
+        ...mapState({
+            apiKey: state => state.settings.apiKey,
+
+        })
+    },
     data() {
         return {
             host: 'https://pay.business.paysend.com',
@@ -103,8 +109,8 @@ export default {
         }
     },
     created() {
-        this.loadJS(this.cryptoUrl, document.body);
-        this.loadJS(this.paymentUrl, document.body);
+        this.loadJS(this.localComputed.cryptoUrl, document.body);
+        this.loadJS(this.localComputed.paymentUrl, document.body);
     }
 }
 </script>
