@@ -83,16 +83,11 @@ export default {
                 amount: this.paymentData.amount
             })
 
-            console.log('json', JSON.stringify(json))
-
             // eslint-disable-next-line
             let encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
 
-            console.log('encrypted', JSON.stringify(encrypted))
-
             window.PaysendBuisnessPayment.pay(encrypted);
 
-            console.log('paid');
         },
         loadJS(url, location) {
             var script = document.createElement('script');
