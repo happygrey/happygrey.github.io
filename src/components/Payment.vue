@@ -51,11 +51,11 @@ export default {
     computed: mapState({
             apiKey: state => state.settings.apiKey
     }),
-    host: '',
+    host: 'https://pay.business.paysend.com',
     data() {
         return {
-            paymentUrl: "https://pay.demo.paysend.com/paysendPaymentLibrary.umd.min.js",
-            cryptoUrl: "https://pay.demo.paysend.com/crypto-js.js",
+            paymentUrl: `${this.host}/paysendPaymentLibrary.umd.min.js`,
+            cryptoUrl: `${this.host}/crypto-js.js`,
             paymentData: {
                 amount: 1,
                 currency: null,
