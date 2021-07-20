@@ -54,10 +54,8 @@ export default {
     host: '',
     data() {
         return {
-            paymentUrl: "http://157.230.120.240/paysendPaymentLibrary.umd.min.js",
-            cryptoUrl: "http://157.230.120.240/crypto-js.js",
-            // appUrl: 'http://157.230.120.240/app.173ec3a9735ad9b5d928.js',
-            // vendorUrl: 'http://157.230.120.240/vendors.js',
+            paymentUrl: "https://pay.demo.paysend.com/paysendPaymentLibrary.umd.min.js",
+            cryptoUrl: "https://pay.demo.paysend.com/crypto-js.js",
             paymentData: {
                 amount: 1,
                 currency: null,
@@ -111,7 +109,6 @@ export default {
     created() {
         this.loadJS(this.cryptoUrl, document.body);
         this.loadJS(this.paymentUrl, document.body);
-        // this.loadJS(this.appUrl, document.body);
     }
 }
 </script>
