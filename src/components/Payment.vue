@@ -62,7 +62,8 @@ export default {
     },
     data() {
         return {
-            host: 'https://pay.business.paysend.com',
+            host: 'https://pay.demo.paysend.com',
+            // host: 'https://pay.business.paysend.com',
             paymentData: {
                 amount: 1,
                 currency: null,
