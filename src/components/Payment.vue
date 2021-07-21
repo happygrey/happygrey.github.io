@@ -74,7 +74,7 @@ export default {
                 { value: null, text: 'Please select an option'},
                 { value: 'GBP', text: 'GB Pound'},
                 { value: 'USD', text: 'US Dollar'},
-                { value: 'RUB', text: 'Russiab ruble'},
+                { value: 'RUB', text: 'Russian ruble'},
             ],
         }
     },

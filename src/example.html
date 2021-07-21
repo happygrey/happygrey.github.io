@@ -1,0 +1,20 @@
+<body>
+    <script src="https://pay.business.paysend.com/paysendPaymentLibrary.umd.min.js"></script>
+    <script src="https://pay.business.paysend.com/crypto-js.js"></script>
+    <script type="text/javascript">
+        function send() {
+            let json = window.PaysendBuisnessPayment.setPaymentData({
+                apiKey: 'your public api key',
+                orderId: 'order id',
+                description: 'some description for order', //optional
+                isRecurring: false, //true if payment is recurring
+                currency: 'EUR', //currency ISO 4217 code
+                amount: 1.0 //total sum of order
+            })
+
+            let encrypted = window.CryptoJS.HmacSHA256(json, 'your secret api key') //encrypt order
+
+            window.PaysendBuisnessPayment.pay(encrypted); //open payment form
+        }
+    </script>
+</body>
