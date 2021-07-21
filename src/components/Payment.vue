@@ -90,7 +90,7 @@ export default {
                 currency: this.paymentData.currency,
                 amount: this.paymentData.amount
             })
-
+            console.log('json', JSON.stringify(json))
             // eslint-disable-next-line
             let encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
 
