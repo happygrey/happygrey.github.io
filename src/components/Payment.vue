@@ -98,7 +98,7 @@ export default {
 
         },
         loadJS(url, location) {
-            var script = document.createElement('script');
+            let script = document.createElement('script');
             script.src = url;
 
             script.onload = () => console.log('loaded');
