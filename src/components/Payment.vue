@@ -74,6 +74,7 @@ export default {
             currencies: [
                 { value: null, text: 'Please select an option'},
                 { value: 'GBP', text: 'GB Pound'},
+                { value: 'EUR', text: 'Euro' },
                 { value: 'USD', text: 'US Dollar'},
                 { value: 'RUB', text: 'Russian ruble'},
             ],
