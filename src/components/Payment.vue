@@ -88,7 +88,7 @@ export default {
                 description: this.paymentData.description,
                 isRecurring: this.paymentData.isRecurring,
                 currency: this.paymentData.currency,
-                amount: this.paymentData.amount
+                amount: Number(this.paymentData.amount)
             });
             console.log('json', JSON.stringify(json))
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
