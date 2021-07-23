@@ -67,7 +67,7 @@ export default {
             paymentData: {
                 amount: 1,
                 currency: null,
-                orderId: '1-z',
+                orderId: this.uuidv4(),
                 description: 'Some test order',
                 isRecurring: false
             },
@@ -106,7 +106,13 @@ export default {
         },
         clear() {
             this.paymentData = { amount: 0, currency: null }
-        }
+        },
+        uuidv4() {
+			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+				var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+				return v.toString(16);
+			});
+		}
     },
     created() {
         this.loadJS(this.localComputed.cryptoUrl, document.body);
