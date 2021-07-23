@@ -82,7 +82,7 @@ export default {
 
     methods: {
         send() {
-            let json = window.PaysendBuisnessPayment.setPaymentData({
+            let payment = window.PaysendBuisnessPayment.setPaymentData({
                 apiKey: this.apiKey.key,
                 orderId: this.paymentData.orderId,
                 description: this.paymentData.description,
@@ -90,11 +90,9 @@ export default {
                 currency: this.paymentData.currency,
                 amount: this.paymentData.amount
             })
-            console.log('json', JSON.stringify(json))
+            console.log('payment', JSON.stringify(payment))
 
-            // eslint-disable-next-line no-undef
-            window.PaysendBuisnessPayment.pay(CryptoJS.HmacSHA256(json, this.apiKey.apiSecret));
-
+            window.PaysendBuisnessPayment.pay(window.CryptoJS.HmacSHA256(payment, this.apiKey.apiSecret));
         },
         loadJS(url, location) {
             let script = document.createElement('script');
