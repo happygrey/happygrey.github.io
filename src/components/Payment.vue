@@ -82,20 +82,18 @@ export default {
 
     methods: {
         send() {
-            let json = window.PaysendBuisnessPayment.setPaymentData({
+            const json = window.PaysendBuisnessPayment.setPaymentData({
                 apiKey: this.apiKey.key,
                 orderId: this.paymentData.orderId,
                 description: this.paymentData.description,
                 isRecurring: this.paymentData.isRecurring,
                 currency: this.paymentData.currency,
                 amount: this.paymentData.amount
-            })
+            });
             console.log('json', JSON.stringify(json))
-            // eslint-disable-next-line
-            // var encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
-            // console.log('encrypted', encrypted);
-            // eslint-disable-next-line no-undef
-            window.PaysendBuisnessPayment.pay(CryptoJS.HmacSHA256(json, this.apiKey.secret));
+            const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
+            console.log('encrypted', encrypted);
+            window.PaysendBuisnessPayment.pay(encrypted);
         },
         loadJS(url, location) {
             let script = document.createElement('script');
