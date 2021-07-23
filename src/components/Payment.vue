@@ -32,7 +32,7 @@
             </div>
             <div class="row">
                 <div class="col-3 mt-3">
-                    <b-button class="mt-3" @click="send" id="pay-button">Pay</b-button>
+                    <b-button class="mt-3" @click.="send" id="pay-button">Pay</b-button>
                 </div>
                 <div class="col-3 mt-3">
                     <b-button class="col-6 mt-3" @click="clear" id="clear-button">Cancel and clear</b-button>
@@ -91,10 +91,9 @@ export default {
                 amount: this.paymentData.amount
             })
             console.log('json', JSON.stringify(json))
-            // eslint-disable-next-line
-            let encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
-            console.log('encrypted', encrypted);
-            window.PaysendBuisnessPayment.pay(encrypted);
+
+            // eslint-disable-next-line no-undef
+            window.PaysendBuisnessPayment.pay(CryptoJS.HmacSHA256(json, this.apiKey.apiSecret));
 
         },
         loadJS(url, location) {
