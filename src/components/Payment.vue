@@ -94,7 +94,8 @@ export default {
             console.log('json', JSON.stringify(json))
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
             console.log('encrypted', encrypted);
-            window.PaysendBusinessPayment.pay(encrypted);
+            // window.PaysendBusinessPayment.pay(encrypted);
+            window.postMessage( {  eventType: 'PaysendEvents.PaysendBusiness_OpenModal', details: encrypted } , this.host);        
         },
         loadJS(url, location) {
             let script = document.createElement('script');
