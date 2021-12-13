@@ -83,7 +83,7 @@ export default {
 
     methods: {
         send() {
-            const json = window.PaysendBuisnessPayment.setPaymentData({
+            const json = window.PaysendBusinessPayment.setPaymentData({
                 apiKey: this.apiKey.key,
                 orderId: this.paymentData.orderId,
                 description: this.paymentData.description,
@@ -94,7 +94,7 @@ export default {
             console.log('json', JSON.stringify(json))
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
             console.log('encrypted', encrypted);
-            window.PaysendBuisnessPayment.pay(encrypted);
+            window.PaysendBusinessPayment.pay(encrypted);
         },
         loadJS(url, location) {
             let script = document.createElement('script');
