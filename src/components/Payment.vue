@@ -96,7 +96,8 @@ export default {
             console.log('encrypted', encrypted);
             // window.PaysendBusinessPayment.pay(encrypted);
             window.addEventListener('message', this.handleEvent);
-            window.postMessage( {  eventType: 'PaysendEvents.PaysendBusiness_OpenModal', details: encrypted } , '*');        
+            let eventMessage = {  eventType: 'PaysendEvents.PaysendBusiness_OpenModal', details: encrypted };
+            window.postMessage(eventMessage, '*');        
         },
         loadJS(url, location) {
             let script = document.createElement('script');
