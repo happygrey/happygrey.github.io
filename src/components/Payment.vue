@@ -62,8 +62,8 @@ export default {
     },
     data() {
         return {
-            // host: 'https://pay.demo.paysend.com',
-            host: 'https://localhost:8081',
+            host: 'https://pay.demo.paysend.com',
+            // host: 'https://localhost:8081',
             paymentData: {
                 amount: 1,
                 currency: null,
@@ -120,8 +120,8 @@ export default {
 		}
     },
     created() {
-        this.loadJS('crypto-js.js', document.body);
-        this.loadJS("paysendPaymentLibrary.umd.min.js", document.body);
+        this.loadJS(this.paymentUrl, document.body);
+        this.loadJS(this.cryptoUrl, document.body);
     }
 }
 </script>
