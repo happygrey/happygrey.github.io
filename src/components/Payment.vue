@@ -62,8 +62,8 @@ export default {
     },
     data() {
         return {
-            host: 'https://pay.demo.paysend.com',
-            // host: 'https://pay.business.paysend.com',
+            // host: 'https://pay.demo.paysend.com',
+            host: 'https://localhost:8081',
             paymentData: {
                 amount: 1,
                 currency: null,
@@ -94,18 +94,20 @@ export default {
             console.log('json', JSON.stringify(json))
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
             console.log('encrypted', encrypted);
-            // window.PaysendBusinessPayment.pay(encrypted);
-            window.addEventListener('message', this.handleEvent);
-            let eventMessage = {  eventType: 'PaysendEvents.PaysendBusiness_OpenModal', details: encrypted };
-            window.postMessage(eventMessage, '*');        
+
+            let eventMessage = {
+				eventType: 'PaysendBusiness_OpenModal',
+				details: encrypted
+			};
+
+            window.postMessage(eventMessage, window.PaysendBusinessPayment.PaysendBusinessPaymentHost);        
         },
-        loadJS(url, location) {
+        loadJS(url, location, type = 'text/javascript') {
             let script = document.createElement('script');
             script.src = url;
-
-            script.onload = () => console.log('loaded');
-
+            script.type = type;
             location.appendChild(script);
+            script.onload = () => console.log('loaded');
         },
         clear() {
             this.paymentData = { amount: 0, currency: null }
@@ -118,8 +120,8 @@ export default {
 		}
     },
     created() {
-        this.loadJS(this.localComputed.cryptoUrl, document.body);
-        this.loadJS(this.localComputed.paymentUrl, document.body);
+        this.loadJS('crypto-js.js', document.body);
+        this.loadJS("paysendPaymentLibrary.umd.min.js", document.body);
     }
 }
 </script>
