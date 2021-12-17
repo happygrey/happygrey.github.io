@@ -94,13 +94,14 @@ export default {
             console.log('json', JSON.stringify(json))
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
             console.log('encrypted', encrypted);
+            
+            window.PaysendBusinessPayment.pay(encrypted);
+            // let eventMessage = {
+			// 	eventType: 'PaysendBusiness_OpenModal',
+			// 	details: encrypted
+			// };
 
-            let eventMessage = {
-				eventType: 'PaysendBusiness_OpenModal',
-				details: encrypted
-			};
-
-            window.postMessage(eventMessage, window.PaysendBusinessPayment.PaysendBusinessPaymentHost);        
+            // window.postMessage(eventMessage, window.PaysendBusinessPayment.PaysendBusinessPaymentHost);        
         },
         loadJS(url, location, type = 'text/javascript') {
             console.log('url', url);
