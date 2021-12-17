@@ -103,6 +103,7 @@ export default {
             window.postMessage(eventMessage, window.PaysendBusinessPayment.PaysendBusinessPaymentHost);        
         },
         loadJS(url, location, type = 'text/javascript') {
+            console.log('url', url);
             let script = document.createElement('script');
             script.src = url;
             script.type = type;
@@ -120,8 +121,8 @@ export default {
 		}
     },
     created() {
-        this.loadJS(this.paymentUrl, document.body);
-        this.loadJS(this.cryptoUrl, document.body);
+        this.loadJS(this.localComputed.paymentUrl, document.body);
+        this.loadJS(this.localComputed.cryptoUrl, document.body);
     }
 }
 </script>
