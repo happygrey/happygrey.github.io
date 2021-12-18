@@ -124,6 +124,8 @@ export default {
     created() {
         this.loadJS(this.localComputed.paymentUrl, document.body);
         this.loadJS(this.localComputed.cryptoUrl, document.body);
+        // this.loadJS('paysendPaymentLibrary.umd.min.js', document.body);
+        // this.loadJS('crypto-js.js', document.body);    
     }
 }
 </script>
