@@ -83,16 +83,23 @@ export default {
 
     methods: {
         send() {
+            let isSupportedApplePayJs = false;
+            if (window.ApplePaySession) {
+                isSupportedApplePayJs = true;
+            }
+            console.log('isSupportedApplePayJs', isSupportedApplePayJs);
+
             const json = window.PaysendBusinessPayment.setPaymentData({
                 apiKey: this.apiKey.key,
                 orderId: this.paymentData.orderId,
                 description: this.paymentData.description,
                 isRecurring: this.paymentData.isRecurring,
                 currency: this.paymentData.currency,
-                amount: Number(this.paymentData.amount)
+                amount: Number(this.paymentData.amount),
+                isApple: isSupportedApplePayJs
             });
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
-            
+
             // window.PaysendBusinessPayment.pay(encrypted);
             let eventMessage = {
 				eventType: 'PaysendBusiness_OpenModal',
@@ -117,13 +124,27 @@ export default {
 				var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
 				return v.toString(16);
 			});
-		}
+		},
+        receiveMessage(event) {
+            console.log('payment lib event', event);
+
+            if (!event.data.eventType) {
+                console.error('eventType is null');
+            }
+
+            if (event.data.eventType === 'PaysendBusiness_Started') {
+                console.log('PaysendBusiness_Started on client side');
+            }
+
+        }
     },
     created() {
         this.loadJS(this.localComputed.paymentUrl, document.body);
         this.loadJS(this.localComputed.cryptoUrl, document.body);
         // this.loadJS('paysendPaymentLibrary.umd.min.js', document.body);
         // this.loadJS('crypto-js.js', document.body);    
+
+        window.addEventListener('message',this.receiveMessage);
     }
 }
 </script>
