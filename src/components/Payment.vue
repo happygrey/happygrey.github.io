@@ -98,7 +98,9 @@ export default {
                 amount: Number(this.paymentData.amount),
                 isApple: isSupportedApplePayJs
             });
-            const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret)
+            
+            const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret);
+            console.log("hash" ,encrypted);
 
             // window.PaysendBusinessPayment.pay(encrypted);
             let eventMessage = {
