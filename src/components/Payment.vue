@@ -100,7 +100,7 @@ export default {
             });
             
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret);
-            console.log("hash" ,encrypted);
+            console.log("hash" ,encrypted.toString());
 
             // window.PaysendBusinessPayment.pay(encrypted);
             let eventMessage = {
