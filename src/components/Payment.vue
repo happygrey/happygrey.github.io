@@ -98,7 +98,7 @@ export default {
                 amount: Number(this.paymentData.amount),
                 isApple: isSupportedApplePayJs
             });
-            
+            console.log('json', json);
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret);
             console.log("hash" ,encrypted.toString());
 
