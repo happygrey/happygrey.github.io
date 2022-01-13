@@ -96,7 +96,6 @@ export default {
                 isRecurring: this.paymentData.isRecurring,
                 currency: this.paymentData.currency,
                 amount: Number(this.paymentData.amount),
-                isApple: isSupportedApplePayJs
             });
             console.log('json', json);
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret);
@@ -105,7 +104,8 @@ export default {
             // window.PaysendBusinessPayment.pay(encrypted);
             let eventMessage = {
 				eventType: 'PaysendBusiness_OpenModal',
-				details: encrypted
+				details: encrypted,
+                isApplePayAvailable: isSupportedApplePayJs
 			};
 
             window.postMessage(eventMessage, window.PaysendBusinessPayment.PaysendBusinessPaymentHost);        
