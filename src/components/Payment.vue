@@ -99,12 +99,12 @@ export default {
             });
             console.log('json', json);
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret);
-            console.log("hash" ,encrypted.toString());
+            console.log("hash", encrypted.toString());
 
             // window.PaysendBusinessPayment.pay(encrypted);
             let eventMessage = {
 				eventType: 'PaysendBusiness_OpenModal',
-				details: encrypted,
+				details: encrypted.toString(),
                 isApplePayAvailable: isSupportedApplePayJs
 			};
 
