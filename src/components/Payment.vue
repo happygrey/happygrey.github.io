@@ -128,7 +128,7 @@ export default {
 			});
 		},
         receiveMessage(event) {
-            console.log('payment lib event', event);
+            console.log('merchant site event', event);
 
             if (!event.data.eventType) {
                 console.error('eventType is null');
