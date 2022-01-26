@@ -101,14 +101,14 @@ export default {
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret);
             console.log("hash", encrypted.toString());
 
-            window.PaysendBusinessPayment.pay(encrypted);
-            // let eventMessage = {
-			// 	eventType: 'PaysendBusiness_OpenModal',
-			// 	details: encrypted.toString(),
-            //     isApplePayAvailable: isSupportedApplePayJs
-			// };
+            // window.PaysendBusinessPayment.pay(encrypted);
+            let eventMessage = {
+				eventType: 'PaysendBusiness_OpenModal',
+				details: encrypted.toString(),
+                isApplePayAvailable: isSupportedApplePayJs
+			};
 
-            // window.postMessage(eventMessage, window.PaysendBusinessPayment.PaysendBusinessPaymentHost);        
+            window.postMessage(eventMessage, window.PaysendBusinessPayment.PaysendBusinessPaymentHost);        
         },
         loadJS(url, location, type = 'text/javascript') {
             console.log('url', url);
