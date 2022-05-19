@@ -108,7 +108,7 @@ export default {
                 isApplePayAvailable: isSupportedApplePayJs
 			};
 
-            window.postMessage(eventMessage, window.PaysendBusinessPayment.PaysendBusinessPaymentHost);        
+            window.postMessage(eventMessage, '*');        
         },
         loadJS(url, location, type = 'text/javascript') {
             console.log('url', url);
