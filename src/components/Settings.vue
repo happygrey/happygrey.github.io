@@ -35,8 +35,8 @@
         data() {
             return {
                 ak: {
-                    key: '170481631d834a4a8f73d244d207687e',
-                    secret: 'bff2c796fb46476f9a6e61c05b7106af'
+                    key: '',
+                    secret: ''
                 }
             }
         },
