@@ -62,8 +62,8 @@ export default {
     },
     data() {
         return {
-            host: 'https://pay.demo.paysend.com',
-            // host: 'https://localhost:8081',
+            // host: 'https://pay.demo.paysend.com',
+            host: 'https://localhost:8081',
             paymentData: {
                 amount: 1,
                 currency: null,
@@ -96,6 +96,7 @@ export default {
                 isRecurring: this.paymentData.isRecurring,
                 currency: this.paymentData.currency,
                 amount: Number(this.paymentData.amount),
+                subscriptionPeriod: null 
             });
             console.log('json', json);
             const encrypted = window.CryptoJS.HmacSHA256(json, this.apiKey.secret);
