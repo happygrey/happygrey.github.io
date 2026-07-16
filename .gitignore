@@ -22,3 +22,10 @@ pnpm-debug.log*
 *.sw?
 
 dist
+
+# React / TypeScript
+build
+*.tsbuildinfo
+.next
+out
+.cache
