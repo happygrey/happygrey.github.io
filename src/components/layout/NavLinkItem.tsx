@@ -12,8 +12,8 @@ export function NavLinkItem({ path, label, onClick }: NavLinkItemProps) {
 			end={path === '/'}
 			onClick={onClick}
 			className={({ isActive }) =>
-				`text-sm font-medium transition-colors ${
-					isActive ? 'text-indigo-400' : 'text-slate-300 hover:text-slate-100'
+				`rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+					isActive ? 'text-accent' : 'text-muted-foreground hover:text-foreground'
 				}`
 			}
 		>

@@ -3,35 +3,50 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="theme-color" content="#0f172a" />
+		<meta name="theme-color" content="#FFFFFF" />
+
+		<script>
+			// Sets the `dark` class before first paint so there's no flash of the
+			// wrong theme; ThemeContext reads this class back on mount instead of
+			// re-deriving it, keeping a single source of truth.
+			(function () {
+				try {
+					var stored = localStorage.getItem('theme');
+					var dark = stored
+						? stored === 'dark'
+						: window.matchMedia('(prefers-color-scheme: dark)').matches;
+					if (dark) document.documentElement.classList.add('dark');
+				} catch (e) {}
+			})();
+		</script>
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="alternate icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="manifest" href="/site.webmanifest" />
 
-		<title>Sergey Rodionov — Software Engineer</title>
+		<title>Sergey Rodionov — Senior Software Engineer</title>
 		<meta
 			name="description"
-			content="Portfolio of Sergey Rodionov — software engineer. Projects, architecture notes, blog, and resume."
+			content="Sergey Rodionov — Senior Software Engineer at Paysend. 10 years building fintech platforms, backend systems, and high-availability infrastructure."
 		/>
 		<link rel="canonical" href="https://rodionov.online/" />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Sergey Rodionov" />
-		<meta property="og:title" content="Sergey Rodionov — Software Engineer" />
+		<meta property="og:title" content="Sergey Rodionov — Senior Software Engineer" />
 		<meta
 			property="og:description"
-			content="Portfolio of Sergey Rodionov — software engineer. Projects, architecture notes, blog, and resume."
+			content="Sergey Rodionov — Senior Software Engineer at Paysend. 10 years building fintech platforms, backend systems, and high-availability infrastructure."
 		/>
 		<meta property="og:url" content="https://rodionov.online/" />
 		<meta property="og:image" content="https://rodionov.online/og-image.png" />
 
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Sergey Rodionov — Software Engineer" />
+		<meta name="twitter:title" content="Sergey Rodionov — Senior Software Engineer" />
 		<meta
 			name="twitter:description"
-			content="Portfolio of Sergey Rodionov — software engineer. Projects, architecture notes, blog, and resume."
+			content="Sergey Rodionov — Senior Software Engineer at Paysend. 10 years building fintech platforms, backend systems, and high-availability infrastructure."
 		/>
 		<meta name="twitter:image" content="https://rodionov.online/og-image.png" />
 

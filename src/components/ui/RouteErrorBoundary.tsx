@@ -9,8 +9,8 @@ export function RouteErrorBoundary() {
 
 	return (
 		<Container className="py-24 text-center">
-			<h1 className="text-2xl font-semibold text-slate-100">{message}</h1>
-			<p className="mt-2 text-slate-400">Please try again or head back to the homepage.</p>
+			<h1 className="text-2xl font-semibold text-foreground">{message}</h1>
+			<p className="mt-2 text-muted-foreground">Please try again or head back to the homepage.</p>
 		</Container>
 	);
 }
