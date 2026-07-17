@@ -1,5 +1,5 @@
 export const siteName = 'Sergey Rodionov';
 export const siteUrl = 'https://rodionov.online';
 export const defaultDescription =
-	'Portfolio of Sergey Rodionov — software engineer. Projects, architecture notes, blog, and resume.';
+	'Sergey Rodionov — Senior Software Engineer at Paysend. 10 years building fintech platforms, backend systems, and high-availability infrastructure.';
 export const defaultOgImage = `${siteUrl}/og-image.png`;

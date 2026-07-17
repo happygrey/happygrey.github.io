@@ -1,7 +1,7 @@
 import { Seo } from '@/components/seo/Seo';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { LinkButton } from '@/components/ui/Button';
+import { LinkButton, RouterLinkButton } from '@/components/ui/Button';
 import { FadeIn } from '@/components/motion/FadeIn';
 
 export default function Resume() {
@@ -10,12 +10,18 @@ export default function Resume() {
 			<Seo title="Resume" description="Work experience and skills." path="/resume" />
 			<FadeIn>
 				<SectionHeading title="Resume" />
-				<p className="max-w-2xl text-slate-300">
-					Download a copy of my resume, or reach out via the contacts page.
+				<p className="max-w-[60ch] text-muted-foreground">
+					A downloadable PDF is coming soon. In the meantime, reach out and I&apos;ll send my
+					résumé directly.
 				</p>
-				<LinkButton href="/resume.pdf" download className="mt-6">
-					Download PDF
-				</LinkButton>
+				<div className="mt-6 flex flex-wrap gap-4">
+					<LinkButton href="mailto:hello@rodionov.online?subject=Resume%20request" variant="primary">
+						Request my résumé by email
+					</LinkButton>
+					<RouterLinkButton to="/contacts" variant="secondary">
+						Or use the contact form
+					</RouterLinkButton>
+				</div>
 			</FadeIn>
 		</Container>
 	);

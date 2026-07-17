@@ -5,7 +5,7 @@ export function LoadingFallback() {
 			role="status"
 			aria-label="Loading"
 		>
-			<div className="h-6 w-6 animate-spin rounded-full border-2 border-slate-700 border-t-indigo-400" />
+			<div className="h-6 w-6 animate-spin rounded-full border-2 border-border border-t-accent" />
 		</div>
 	);
 }
