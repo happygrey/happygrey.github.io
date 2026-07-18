@@ -1,13 +1,14 @@
 import { Mail } from 'lucide-react';
 import { navItems } from '@/data/nav';
+import { contacts } from '@/data/contacts';
 import { NavLinkItem } from '@/components/layout/NavLinkItem';
 import { Container } from '@/components/ui/Container';
 import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons';
 
 const socialLinks = [
-	{ label: 'GitHub', href: 'https://github.com/happygrey', icon: GithubIcon },
-	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/sergey-rodionov/', icon: LinkedinIcon },
-	{ label: 'Email', href: 'mailto:hello@rodionov.online', icon: Mail },
+	{ label: 'GitHub', href: contacts.github.url, icon: GithubIcon },
+	{ label: 'LinkedIn', href: contacts.linkedin.url, icon: LinkedinIcon },
+	{ label: 'Email', href: `mailto:${contacts.email}`, icon: Mail },
 ];
 
 const iconLinkClasses =

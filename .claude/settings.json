@@ -21,7 +21,14 @@
       "Bash(node /private/tmp/claude-501/-Users-serge-source-happygrey-github-io/23955bae-70e9-46c4-a8ed-898a9c755bce/scratchpad/verify.mjs)",
       "Bash(node /Users/serge/source/happygrey.github.io/.verify-tmp.mjs)",
       "Bash(curl -sf http://localhost:5173)",
-      "Bash(sed -i '' 's#http://localhost:5175#http://localhost:5173#' /Users/serge/source/happygrey.github.io/.verify-tmp.mjs)"
+      "Bash(sed -i '' 's#http://localhost:5175#http://localhost:5173#' /Users/serge/source/happygrey.github.io/.verify-tmp.mjs)",
+      "Bash(curl -sv http://localhost:4173/robots.txt)",
+      "Bash(curl -s https://rodionov.online/)",
+      "Bash(curl -sI https://rodionov.online/robots.txt)",
+      "Bash(curl -svL https://rodionov.online/robots.txt -o /tmp/live-robots.txt)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" -L http://rodionov.online/robots.txt)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" -L https://www.rodionov.online/robots.txt)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" -L http://www.rodionov.online/robots.txt)"
     ],
     "additionalDirectories": [
       "/Users/serge/Downloads"
