@@ -28,10 +28,13 @@
       "Bash(curl -svL https://rodionov.online/robots.txt -o /tmp/live-robots.txt)",
       "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" -L http://rodionov.online/robots.txt)",
       "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" -L https://www.rodionov.online/robots.txt)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" -L http://www.rodionov.online/robots.txt)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" -L http://www.rodionov.online/robots.txt)",
+      "Read(//Users/serge/Downloads/**)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/serge/Downloads/photo_2026-07-17_02-17-58.jpg\")"
     ],
     "additionalDirectories": [
-      "/Users/serge/Downloads"
+      "/Users/serge/Downloads",
+      "/private/tmp"
     ]
   }
 }
