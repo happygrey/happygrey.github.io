@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { LinkButton, RouterLinkButton } from '@/components/ui/Button';
 import { FadeIn } from '@/components/motion/FadeIn';
+import { contacts } from '@/data/contacts';
 
 export default function Resume() {
 	return (
@@ -15,11 +16,11 @@ export default function Resume() {
 					résumé directly.
 				</p>
 				<div className="mt-6 flex flex-wrap gap-4">
-					<LinkButton href="mailto:hello@rodionov.online?subject=Resume%20request" variant="primary">
+					<LinkButton href={`mailto:${contacts.email}?subject=Resume%20request`} variant="primary">
 						Request my résumé by email
 					</LinkButton>
 					<RouterLinkButton to="/contacts" variant="secondary">
-						Or use the contact form
+						Or visit my contact page
 					</RouterLinkButton>
 				</div>
 			</FadeIn>

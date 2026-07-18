@@ -5,6 +5,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { FadeIn } from '@/components/motion/FadeIn';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { posts } from '@/data/posts';
+import { contacts } from '@/data/contacts';
 
 export default function Blog() {
 	return (
@@ -20,7 +21,7 @@ export default function Blog() {
 						<p className="max-w-[40ch] text-sm text-muted-foreground">
 							I&apos;m planning to write about the systems I build. Check back soon, or find me on{' '}
 							<a
-								href="https://github.com/happygrey"
+								href={contacts.github.url}
 								target="_blank"
 								rel="noreferrer"
 								className="text-accent hover:underline"

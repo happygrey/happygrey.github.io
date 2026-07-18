@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { GithubIcon } from '@/components/icons/BrandIcons';
 import { navItems } from '@/data/nav';
+import { contacts } from '@/data/contacts';
 import { NavLinkItem } from '@/components/layout/NavLinkItem';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { Container } from '@/components/ui/Container';
@@ -31,7 +32,7 @@ export function Header() {
 					</nav>
 
 					<a
-						href="https://github.com/happygrey"
+						href={contacts.github.url}
 						target="_blank"
 						rel="noreferrer"
 						aria-label="GitHub"
@@ -65,7 +66,7 @@ export function Header() {
 						<NavLinkItem key={item.path} {...item} onClick={() => setIsMenuOpen(false)} />
 					))}
 					<a
-						href="https://github.com/happygrey"
+						href={contacts.github.url}
 						target="_blank"
 						rel="noreferrer"
 						className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
