@@ -15,6 +15,6 @@ export const architecturePrinciples: ArchitecturePrinciple[] = [
 	},
 	{
 		title: 'Ship the smallest thing that proves the architecture',
-		body: "Paysend Business shipped its first release in half an hour, deliberately minimal, to validate the system's shape before investing further. Architecture is a hypothesis until it survives contact with real traffic.",
+		body: "In Paysend Business I shipped its first release in half an hour, deliberately minimal, to validate the system's shape before investing further. Architecture is a hypothesis until it survives contact with real traffic.",
 	},
 ];
