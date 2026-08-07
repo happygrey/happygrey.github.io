@@ -22,7 +22,7 @@ export function Hero() {
 					</h1>
 					<p className="mt-6 max-w-[55ch] text-lg text-muted-foreground">
 						Building fintech platforms and the backend systems behind them — 10 years of shipping
-						high-availability software at Paysend, with a focus on reliability, clean architecture,
+						high-availability software, with a focus on reliability, clean architecture,
 						and ownership from idea to production.
 					</p>
 
