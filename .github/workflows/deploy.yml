@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Install Tectonic
-        uses: wtfjoke/setup-tectonic@v3
+        uses: wtfjoke/setup-tectonic@8a63d072f8390efdff59da7fa08aa49e3c1f5e1b # v3
         with:
           tectonic-version: latest
 
