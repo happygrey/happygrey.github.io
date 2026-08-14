@@ -40,6 +40,7 @@ The dev server runs at `http://localhost:5173`.
 ## Project structure
 
 ```
+resume/resume.tex  LaTeX source for the CV, compiled to public/resume.pdf during CI deploy
 public/            Static assets served as-is (favicons, CNAME, robots.txt, sitemap.xml, 404.html)
 src/
   layouts/          RootLayout — header, page transition, footer
@@ -85,7 +86,15 @@ Every page renders a `<Seo title description path />` component (`src/components
 
 ## Deployment
 
-Pushing to `master` triggers `.github/workflows/deploy.yml`, which lints, builds, and deploys the `dist/` output to GitHub Pages via `actions/deploy-pages`. The custom domain (`rodionov.online`) is preserved via `public/CNAME`, which Vite copies verbatim into `dist/` at build time.
+Pushing to `master` triggers `.github/workflows/deploy.yml`, which compiles the résumé, lints, builds, and deploys the `dist/` output to GitHub Pages via `actions/deploy-pages`. The custom domain (`rodionov.online`) is preserved via `public/CNAME`, which Vite copies verbatim into `dist/` at build time.
+
+### Résumé PDF
+
+`resume/resume.tex` is the source of truth for the downloadable CV on `/resume`. CI compiles it with [Tectonic](https://tectonic-typesetting.github.io/) into `public/resume.pdf` before the Vite build, so it's always in sync with the `.tex` source and never committed to git (`public/resume.pdf` is gitignored). To preview a change locally, [install Tectonic](https://tectonic-typesetting.github.io/en-US/install.html) and run:
+
+```bash
+tectonic resume/resume.tex --outdir public
+```
 
 **One-time manual setup:** in this repo's Settings → Pages, set "Build and deployment → Source" to **GitHub Actions**, and confirm the custom domain and "Enforce HTTPS" are still set correctly.
 
