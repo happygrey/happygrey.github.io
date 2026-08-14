@@ -9,7 +9,6 @@
       "Bash(/tmp/tectonic-install/tectonic --version)",
       "Bash(/tmp/tectonic-install/tectonic resume/resume.tex --outdir /tmp/tectonic-install)",
       "Bash(/tmp/tectonic-install/tectonic --help)",
-      "Bash(python3 -c ' *)",
       "Bash(python3 -c \"import fitz\")",
       "Bash(python3 -c \"import PyPDF2\")",
       "Bash(python3 -c \"import pypdf\")",
