@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /tmp/tectonic-install)",
+      "Bash(curl -sL --max-time 20 -o /tmp/tectonic-install/release.json https://api.github.com/repos/tectonic-typesetting/tectonic/releases/latest)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(curl -sL --max-time 60 -o /tmp/tectonic-install/tectonic.tar.gz \"https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.17.0/tectonic-0.17.0-aarch64-apple-darwin.tar.gz\")",
+      "Bash(tar -xzf /tmp/tectonic-install/tectonic.tar.gz -C /tmp/tectonic-install)",
+      "Bash(/tmp/tectonic-install/tectonic --version)",
+      "Bash(/tmp/tectonic-install/tectonic resume/resume.tex --outdir /tmp/tectonic-install)",
+      "Bash(/tmp/tectonic-install/tectonic --help)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import fitz\")",
+      "Bash(python3 -c \"import PyPDF2\")",
+      "Bash(python3 -c \"import pypdf\")",
+      "Bash(mdls -name kMDItemNumberOfPages -name kMDItemTextContent /tmp/tectonic-install/resume.pdf)",
+      "Bash(qlmanage -t -s 1600 -o /tmp/tectonic-install /tmp/tectonic-install/resume.pdf)",
+      "Bash(pip3 install *)",
+      "Bash(qlmanage -t -s 1600 -o /tmp/tectonic-install /tmp/tectonic-install/resume-p2.pdf)",
+      "Bash(cp /tmp/tectonic-install/resume.pdf /Users/serge/source/happygrey.github.io/public/resume.pdf && npm run typecheck && npm run lint)",
+      "Bash(curl -s -o /dev/null -w \"resume page: %{http_code}\\\\n\" http://localhost:5173/resume)",
+      "Bash(curl -s -o /dev/null -w \"resume.pdf: %{http_code}, size: %{size_download}\\\\n\" http://localhost:5173/resume.pdf)",
+      "Bash(curl -s http://localhost:5173/resume)",
+      "Bash(pkill -f \"vite\")",
+      "Bash(rm -rf /tmp/tectonic-install /tmp/vite-dev.log)"
+    ],
+    "additionalDirectories": [
+      "/private/tmp/tectonic-install"
+    ]
+  }
+}
